@@ -226,6 +226,11 @@ var initCmd = &cli.Command{
 
 			if err := lr.SetStorage(func(sc *stores.StorageConfig) {
 				sc.StoragePaths = append(sc.StoragePaths, localPaths...)
+
+				fmt.Printf("sc: %+v\n", sc)
+				fmt.Printf("sc.StoragePaths: %+v\n", sc.StoragePaths)
+				fmt.Printf("localPaths: %+v\n", localPaths)
+				panic(sc)
 			}); err != nil {
 				return xerrors.Errorf("set storage config: %w", err)
 			}
